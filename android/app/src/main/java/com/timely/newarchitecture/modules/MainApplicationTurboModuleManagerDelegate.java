@@ -1,4 +1,4 @@
-package com.timely.newarchitecture.modules;
+package com.mollycule.timely.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

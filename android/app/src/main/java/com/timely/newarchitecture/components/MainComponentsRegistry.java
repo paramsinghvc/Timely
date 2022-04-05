@@ -1,4 +1,4 @@
-package com.timely.newarchitecture.components;
+package com.mollycule.timely.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;
