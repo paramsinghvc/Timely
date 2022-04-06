@@ -1,6 +1,6 @@
 import React from 'react';
 import { NativeBaseProvider, Box } from 'native-base';
-import codePush from 'react-native-code-push';
+// import codePush from 'react-native-code-push';
 
 import { theme } from './core/theme';
 import { TasksList } from './components/TasksList';
@@ -15,14 +15,15 @@ const ShellComp = () => {
 	);
 };
 
-const codePushOptions = {
-	checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
-	mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
-	installMode: CodePush.InstallMode.IMMEDIATE,
-	updateDialog: {
-		appendReleaseDescription: true,
-		title: 'A new update is available!',
-	},
-};
+// const codePushOptions = {
+// 	checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+// 	mandatoryInstallMode: codePush.InstallMode.IMMEDIATE,
+// 	installMode: codePush.InstallMode.IMMEDIATE,
+// 	updateDialog: {
+// 		appendReleaseDescription: true,
+// 		title: 'A new update is available!',
+// 	},
+// };
 
-export const Shell = codePush(codePushOptions)(ShellComp);
+// export const Shell = codePush(codePushOptions)(ShellComp);
+export const Shell = ShellComp;
