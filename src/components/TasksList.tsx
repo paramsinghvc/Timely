@@ -52,7 +52,7 @@ export const TasksList = () => {
 		<VStack pt={7} flex={1}>
 			<HStack justifyContent="space-between" px={7} alignItems="center">
 				<Text color="muted.600" fontWeight="400" fontSize="4xl">
-					My Tasks
+					Tasks List
 				</Text>
 				<IconButton
 					_icon={{ as: FilterIcon, color: isFilterEnabled ? 'primary.500' : 'muted.500' }}
