@@ -11,6 +11,9 @@
 	},
 	"dependencies": {
 		"@types/ramda": "^0.28.7",
+		"appcenter": "^4.4.3",
+		"appcenter-analytics": "^4.4.3",
+		"appcenter-crashes": "^4.4.3",
 		"native-base": "^3.3.10",
 		"ramda": "^0.28.0",
 		"react": "17.0.2",
