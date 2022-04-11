@@ -1,15 +1,17 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ScrollView, Text, VStack, HStack, Input, IconButton, ArrowUpIcon, Center } from 'native-base';
 import * as R from 'ramda';
 import uuid from 'react-native-uuid';
 
 import { Task, TaskData } from './Task';
 import { FilterIcon } from '../icons';
+import { storage } from '../shared/storage';
 
 export const TasksList = () => {
 	const [todoText, setTodoText] = useState<string>();
 	const [isFilterEnabled, setIsFilterEnabled] = useState(false);
 	const [tasks, setTasks] = useState<TaskData[]>([]);
+	const didMount = useRef(false);
 	const filteredTasks = useMemo(
 		() => (isFilterEnabled ? R.filter<TaskData>(R.propEq('completed', false))(tasks) : [...tasks]),
 		[tasks, isFilterEnabled],
@@ -47,6 +49,37 @@ export const TasksList = () => {
 		const rejectTask = R.reject<TaskData>(getTask);
 		setTasks(rejectTask);
 	};
+
+	const persistTasks = useCallback(async (_tasks: TaskData[]) => {
+		console.log({ storeTasks: _tasks });
+		await storage.setItem('tasks', JSON.stringify(_tasks));
+	}, []);
+
+	useEffect(() => {
+		if (!didMount.current) {
+			didMount.current = true;
+			return;
+		}
+		persistTasks(tasks);
+	}, [tasks, persistTasks]);
+
+	const getTasksAsync = useCallback(async () => {
+		try {
+			const _tasks = await storage.getItem('tasks');
+			console.log({ _tasks });
+			if (_tasks) {
+				const tasksArr = JSON.parse(_tasks) as TaskData[];
+				console.log({ tasksArr });
+				setTasks(tasksArr);
+			}
+		} catch (e) {
+			console.error(e);
+		}
+	}, []);
+
+	useEffect(() => {
+		getTasksAsync();
+	}, [getTasksAsync]);
 
 	return (
 		<VStack pt={7} flex={1}>
