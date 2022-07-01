@@ -31,11 +31,11 @@ jobs:
           node-version: 14
           cache: "yarn"
 
-      - name: Setup Ruby (bundle)
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.0"
-          bundler-cache: true
+      # - name: Setup Ruby (bundle)
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: "3.0"
+      #     bundler-cache: true
       - name: Install Node modules
         run: yarn ci
       - name: Restore Pods cache
