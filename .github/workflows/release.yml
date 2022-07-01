@@ -10,9 +10,6 @@ on:
         required: false
         type: string
         default: Build
-    secrets:
-      GITHUB_TOKEN:
-        required: true
 
 jobs:
   bump-package-json-version:
