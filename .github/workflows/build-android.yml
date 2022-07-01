@@ -4,8 +4,9 @@ on:
   workflow_call:
     inputs:
       environment:
-        required: true
+        required: false
         type: string
+        default: "release"
       publish:
         required: false
         type: boolean
