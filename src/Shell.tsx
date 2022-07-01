@@ -8,9 +8,9 @@ import { TasksList } from './components/TasksList';
 const ShellComp = () => {
 	return (
 		<NativeBaseProvider theme={theme}>
-			<Box safeArea flex={1} bg="purple.50">
-				<TasksList />
-			</Box>
+			{/* <Box safeArea flex={1} bg="purple.50"> */}
+			<TasksList />
+			{/* </Box> */}
 		</NativeBaseProvider>
 	);
 };
