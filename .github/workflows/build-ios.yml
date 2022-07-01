@@ -8,13 +8,13 @@ on:
         type: boolean
         description: Publish to Appcenter
     secrets:
-      P12_BASE64:
+      IOS_P12_BASE64:
         required: true
-      MOBILEPROVISION_BASE64:
+      IOS_MOBILEPROVISION_BASE64:
         required: true
       IOS_TEAM_ID:
         required: true
-      CERTIFICATE_PASSWORD:
+      IOS_CERTIFICATE_PASSWORD:
         required: true
       APP_CENTER_TOKEN_IOS:
         required: true
@@ -58,10 +58,10 @@ jobs:
         uses: yukiarrr/ios-build-action@v1.5.0
         with:
           project-path: ios/Timely.xcodeproj
-          p12-base64: ${{ secrets.P12_BASE64 }}
-          mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
+          p12-base64: ${{ secrets.IOS_P12_BASE64 }}
+          mobileprovision-base64: ${{ secrets.IOS_MOBILEPROVISION_BASE64 }}
           code-signing-identity: "Apple Distribution"
-          certificate-password: ${{ secrets.CERTIFICATE_PASSWORD }}
+          certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
           team-id: ${{ secrets.IOS_TEAM_ID }}
           workspace-path: ios/Timely.xcworkspace
           output-path: "Timely.ipa"
