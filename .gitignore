@@ -60,3 +60,10 @@ buck-out/
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
+
+allure-results
+allure-report
+jest-stare
+coverage/*
+!coverage/badges
+!coverage/badge-generator.js

@@ -26,7 +26,7 @@
     "unmatched": 0,
     "updated": 0
   },
-  "startTime": 1656676070626,
+  "startTime": 1656676274935,
   "success": true,
   "testResults": [
     {
@@ -37,10 +37,10 @@
       "numTodoTests": 0,
       "openHandles": [],
       "perfStats": {
-        "end": 1656676076363,
-        "runtime": 5642,
-        "slow": true,
-        "start": 1656676070721
+        "end": 1656676279389,
+        "runtime": 4368,
+        "slow": false,
+        "start": 1656676275021
       },
       "skipped": false,
       "snapshot": {
@@ -56,7 +56,7 @@
       "testResults": [
         {
           "ancestorTitles": [],
-          "duration": 209,
+          "duration": 100,
           "failureDetails": [],
           "failureMessages": [],
           "fullName": "renders correctly",
