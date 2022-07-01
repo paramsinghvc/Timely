@@ -16,8 +16,8 @@ on:
         required: true
       IOS_CERTIFICATE_PASSWORD:
         required: true
-      APP_CENTER_TOKEN_IOS:
-        required: true
+      # APP_CENTER_TOKEN_IOS:
+      #   required: true
 
 jobs:
   build-ios:
