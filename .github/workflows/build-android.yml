@@ -57,12 +57,12 @@ jobs:
       - name: Build Android ${{inputs.environment == 'release' && 'Release' || 'Debug'}}
         run: |
           cd android && ./gradlew bundle${{inputs.environment == 'release' && 'Release' || 'Debug'}} --no-daemon
-
+      - run: pwd
       - name: Sign app APK
         uses: r0adkll/sign-android-release@v1
         id: sign_app
         with:
-          releaseDirectory: android/app/build/outputs/apk/release
+          releaseDirectory: android/app/build/outputs/bundle/release
           signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
           alias: ${{ secrets.ANDROID_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
