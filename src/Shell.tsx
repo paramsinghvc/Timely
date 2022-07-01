@@ -1,6 +1,6 @@
 import React from 'react';
 import { NativeBaseProvider, Box } from 'native-base';
-import CodePush from 'react-native-code-push';
+// import CodePush from 'react-native-code-push';
 
 import { theme } from './core/theme';
 import { TasksList } from './components/TasksList';
