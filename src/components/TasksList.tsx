@@ -84,7 +84,13 @@ export const TasksList = () => {
 	return (
 		<VStack pt={7} flex={1}>
 			<HStack justifyContent="space-between" px={7} alignItems="center">
-				<Text color="muted.600" fontWeight="400" fontSize="4xl">
+				<Text
+					color="muted.600"
+					fontWeight="400"
+					fontSize="4xl"
+					accessibilityLabel="TaskListHeader"
+					testID="TaskListHeader"
+				>
 					My Tasks
 				</Text>
 				<IconButton
@@ -119,7 +125,7 @@ export const TasksList = () => {
 			</ScrollView>
 			<HStack space="5" py="5" px={7}>
 				<Input
-					placeholder="Enter a new task"
+					placeholder="Enter a new todo"
 					w="75%"
 					maxWidth="300px"
 					mx="0"
@@ -129,6 +135,8 @@ export const TasksList = () => {
 					value={todoText}
 					onChangeText={setTodoText}
 					autoFocus
+					accessibilityLabel="taskInput"
+					testID="taskInput"
 				/>
 				<IconButton
 					size="lg"
@@ -136,6 +144,8 @@ export const TasksList = () => {
 					icon={<ArrowUpIcon size="6" />}
 					borderRadius="30"
 					onPress={handleSubmitTodo}
+					accessibilityLabel="submitButton"
+					testID="submitButton"
 				/>
 			</HStack>
 		</VStack>

@@ -15,14 +15,15 @@ const ShellComp = () => {
 	);
 };
 
-const codePushOptions = {
-	checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
-	mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
-	installMode: CodePush.InstallMode.IMMEDIATE,
-	updateDialog: {
-		appendReleaseDescription: true,
-		title: 'A new update is available!',
-	},
-};
+// const codePushOptions = {
+// 	checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+// 	mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
+// 	installMode: CodePush.InstallMode.IMMEDIATE,
+// 	updateDialog: {
+// 		appendReleaseDescription: true,
+// 		title: 'A new update is available!',
+// 	},
+// };
 
-export const Shell = CodePush(codePushOptions)(ShellComp);
+// export const Shell = CodePush(codePushOptions)(ShellComp);
+export const Shell = ShellComp;
