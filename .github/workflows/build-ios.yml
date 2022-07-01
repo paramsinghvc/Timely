@@ -16,8 +16,8 @@ on:
         required: true
       IOS_CERTIFICATE_PASSWORD:
         required: true
-      # APP_CENTER_TOKEN_IOS:
-      #   required: true
+      APPCENTER_TOKEN_IOS:
+        required: true
 
 jobs:
   build-ios:
@@ -31,11 +31,6 @@ jobs:
           node-version: 14
           cache: "yarn"
 
-      # - name: Setup Ruby (bundle)
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: "3.0"
-      #     bundler-cache: true
       - name: Install Node modules
         run: yarn ci
       - name: Restore Pods cache
@@ -90,8 +85,8 @@ jobs:
       - name: Upload artifact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: Finder.com/Finder-UK-iOS
-          token: ${{secrets.APP_CENTER_TOKEN_IOS}}
+          appName: paramsinghvc/Timely-iOS
+          token: ${{secrets.APPCENTER_TOKEN_IOS}}
           group: UKInternal
           file: "ios/Timely.ipa"
           notifyTesters: true
