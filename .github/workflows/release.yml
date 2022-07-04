@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  workflow_call:
+    inputs:
+      tag-suffix:
+        required: false
+        type: string
+      release-title:
+        required: false
+        type: string
+        default: Build
+
+jobs:
+  bump-package-json-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: "yarn"
+
+      - name: Install Node modules
+        run: yarn ci
+
+      - name: "Automated Version Bump"
+        uses: "paramsinghvc/gh-action-bump-version@master"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag-prefix: "v"
+          tag-suffix: ${{ inputs.tag-suffix }}
+
+      - name: "Sync React Native version with package.json version"
+        run: npx react-native-version
+
+      - name: "Commit version sync changes"
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "chore: react native - android & ios versions updated"
+
+      - name: "Automated Release"
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: "latest"
+          title: ${{ inputs.release-title }}

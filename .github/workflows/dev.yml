@@ -1,0 +1,33 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Develop Updated
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  versioning:
+    uses: ./.github/workflows/release.yml
+    with:
+      tag-suffix: dev
+      release-title: Dev Build
+    secrets: inherit
+
+  # Second Job
+  build-and-release-android:
+    needs: versioning
+    uses: ./.github/workflows/build-android.yml
+    with:
+      environment: release
+      publish: true
+    secrets: inherit
+
+  # Third Job
+  build-and-release-ios:
+    needs: versioning
+    uses: ./.github/workflows/build-ios.yml
+    with:
+      publish: true
+    secrets: inherit
