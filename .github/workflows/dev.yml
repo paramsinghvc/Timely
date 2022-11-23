@@ -25,9 +25,9 @@ jobs:
     secrets: inherit
 
   # Third Job
-  build-and-release-ios:
-    needs: versioning
-    uses: ./.github/workflows/build-ios.yml
-    with:
-      publish: true
-    secrets: inherit
+  # build-and-release-ios:
+  #  needs: versioning
+  #  uses: ./.github/workflows/build-ios.yml
+  #  with:
+  #    publish: true
+  #  secrets: inherit
