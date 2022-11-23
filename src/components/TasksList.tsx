@@ -91,7 +91,7 @@ export const TasksList = () => {
 					accessibilityLabel="TaskListHeader"
 					testID="TaskListHeader"
 				>
-					My Tasks
+					Aguante LOS MUCHACHOS
 				</Text>
 				<IconButton
 					_icon={{ as: FilterIcon, color: isFilterEnabled ? 'primary.500' : 'muted.500' }}
